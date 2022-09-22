@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=di, initial-scale=1.0">
+    <title>Objeto</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container py-2">
+        <p class="lead">Ingrese Usuario</p>
+        <form>
+            <input type="text"  id="nombre" placeholder="Ingrese nombre" class="form-control my-2">
+            <input type="text"  id="edad" placeholder="Ingrese edad" class="form-control my-2">
+            <button type="reset" class="btn btn-success" onclick="capturar();" >Agregar</button>
+          </form>
+    </div>
+    <div class="container">
+        <table class="table" id="tabla">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+    function capturar(){
+        //console.log("capturado");
+        function Persona(nombre, edad){
+            this.nombre = nombre;
+            this.edad = edad;
+        }
+        var nombreCapturar = document.getElementById("nombre").value;
+        //console.log(nombreCapturar);
+        var edadCapturar = document.getElementById("edad").value;
+        //console.log(edadCapturar);
+
+        nuevoSujeto = new Persona(nombreCapturar, edadCapturar);
+        //console.log(nuevoSujeto);
+
+        agregar();
+    }
+
+    var baseDatos= [];
+    function agregar(){
+        //console.log("agrego");
+        baseDatos.push(nuevoSujeto);
+        //console.log(baseDatos);
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+nuevoSujeto.nombre+'</td><td>'+nuevoSujeto.edad+'</td></tbody>';
+    }
+</script>
